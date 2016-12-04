@@ -22,5 +22,7 @@ si <- rg_as_sf(ri)
 
 ## these ones are the offenders in the first bad object
 nodal <- st_as_sf(rgeos::gNode(as(si[c(82, 84), ], "Spatial")))
-plot(nodal)
+plot(nodal, asp = 1.2)
+sp::plot(as(invalid, "Spatial"), add = TRUE, col = "grey", rule = "evenodd")
 points(as(as(nodal, "Spatial"), "SpatialMultiPoints"))
+text(ri$v$x_, ri$v$y_, lab = ri$v$vertex_, cex = 0.8, pos = 2, xpd = NA)
