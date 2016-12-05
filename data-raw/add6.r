@@ -1,24 +1,21 @@
+
+vpal <- function(n) {
+  if (!is.null(dim(n))) {
+    n <- nrow(n)
+  } 
+  viridis::viridis(n)
+}
 library(sf)
 add6 <- st_read("data-raw/add6", "Sub-antarctic_coastline_low_res_polygon_to30S", stringsAsFactors = FALSE)
 bad <- !st_is_valid(add6)
 invalid <- add6[which(bad)[1], ]
 plot(invalid)
 
-
+library(dplyr)
 library(rangl)
-ri <- rangl(as(as(invalid, "Spatial"), "SpatialLinesDataFrame"))
-rg_as_sf <- function(x) {
-  mkmatline <- function(a, v) {
-    st_linestring(a %>% inner_join(v, "vertex_") %>% select(x_, y_) %>% as.matrix())
-  }
-    ## expect line segments
-  stopifnot(all(c("lXv", "l") %in% names(x) ))
- g <- st_sfc(lapply(split(x$lXv, ordered(x$lXv$segment_, unique(x$lXv$segment_))), mkmatline, x$v), crs = x$meta$proj[1])
-  d <- data.frame( id = seq_len(length(g)))
-  d[["geometry"]] <- g
-  st_as_sf(d)
-}
-si <- rg_as_sf(ri)
+ri <- rangl(toposhop:::sf_as_sp_l(invalid))
+si <- toposhop:::rg_as_sf(ri)
+plot(si, col = vpal(si))
 
 ## these ones are the offenders in the first bad object
 nodal <- st_as_sf(rgeos::gNode(as(si[c(82, 84), ], "Spatial")))
