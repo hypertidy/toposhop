@@ -13,3 +13,7 @@ rg_as_sf <- function(x) {
 sf_as_sp_l <- function(x) {
   as(as(x, "Spatial"), "SpatialLinesDataFrame")
 }
+
+sf_as_sp_p <- function(x) {
+  as(as(x, "Spatial"), "SpatialPolygonsDataFrame")
+}

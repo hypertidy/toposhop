@@ -1,5 +1,12 @@
 library(sf)
-
+library(dplyr)
+library(rangl)
+vpal <- function(n) {
+  if (!is.null(dim(n))) {
+    n <- nrow(n)
+  } 
+  viridis::viridis(n)
+}
 p_self <- st_sfc(st_polygon(list(cbind(c(0, 0, 1, -0.1, -0.1, 1.5, 0), c(0, 1, 1, 0.2, 1.2, 1.2, 0)))))
 pd <- data.frame(a = 1)
 pd[["geometry"]] <- p_self
