@@ -1,7 +1,7 @@
 
 ## Summary
 
-Automatic eprojection is absolutely fine, but it's not always going to work properly in a number 
+Automatic reprojection is absolutely fine, but it's not always going to work properly in a number 
 of different ways. These aren't mutually exclusive, but come down to either the CRS metadata or the actual
 topology of the line segments that link the raw coordinates, their arrangement and distribution and relation
 to the space in which they are operated on. 
