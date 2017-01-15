@@ -4,3 +4,4 @@
 .Ruserdata
 *.Rproj
 data-raw/add6/*
+inst/doc

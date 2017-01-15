@@ -1,3 +1,13 @@
+---
+title: "Reprojecting spatial data automatically"
+author: "Michael Sumner"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{automatic-reprojection}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
 
 ## Summary
 
