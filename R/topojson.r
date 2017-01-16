@@ -25,8 +25,8 @@
 
 #'## convert to simple features
 #'rapply(ns_obj, classes = "data.frame", f = function(x) inner_join(x, v))
-#'tj_transform <- function(x, sc = 1, tr = 0) x * sc + tr
-#'
+tj_transform <- function(x, sc = 1, tr = 0) x * sc + tr
+
 tj_coord <- function(x) {
   stopifnot(is.list(x))
   ##stopifnot(is.character(x))  ## must be topojson string
@@ -34,7 +34,9 @@ tj_coord <- function(x) {
   tj_scale <- x$transform$scale
   tj_translate <- x$transform$translate
   ## extract all arcs as paths, keep the unscaled coordinates next to the real-world ones
-  dplyr::bind_rows(lapply(x[["arcs"]], function(a) as_tibble(setNames(a, c("ix_", "iy_")))), .id = "i_arc_") %>%
+  
+  #dplyr::bind_rows(lapply(x[["arcs"]], function(a) as_tibble(setNames(a, c("ix_", "iy_")))), .id = "i_arc_") %>%
+  dplyr::bind_rows(lapply(x[["arcs"]], function(a) setNames(as_tibble(do.call(rbind, a)), c("ix_", "iy_"))), .id = "arc") %>% 
     mutate(x_ = tj_transform(ix_, tj_scale[1], tj_translate[1]),
            y_ = tj_transform(iy_, tj_scale[2], tj_translate[2]))
 }
