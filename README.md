@@ -1,4 +1,4 @@
-# torpor
+# toposhop
 
 Early work on R-level topology fixes for simple features. 
 
@@ -9,3 +9,4 @@ So far we have:
 
 See Issues for examples and please add your own!
 
+See r-gris/torpor for package code. 
