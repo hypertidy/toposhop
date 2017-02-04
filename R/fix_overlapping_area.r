@@ -18,11 +18,11 @@ fix_overlapping_area <- function(x, ...) {
 
 #' @importFrom sf st_union
 #' @importFrom sc PRIMITIVE
-#' @importFrom sfct ct_triangulate
+#' @importFrom sfdct ct_triangulate
 #' @name fix_overlapping_area
 #' @export
 fix_overlapping_area.sfc <- function(x, ...) {
-
+  tris <- lapply(x, sfdct::ct_triangulate(x))
   ## union the triangles
   tris <- st_sfc(lapply(x, st_union))
   tris
@@ -31,6 +31,7 @@ fix_overlapping_area.sfc <- function(x, ...) {
 #' @export
 fix_overlapping_area.sf <- function(x, ...) {
   ## triangulate including edges
-  trisG <- lapply(x, sfct::ct_triangulate)
-  x[["geometry"]] <- fix_overlapping_area(st_sfc(trisG))
+  #trisG <- lapply(x, sfdct::ct_triangulate)
+  #x[["geometry"]] <- fix_overlapping_area(st_sfc(trisG))
+  st_union(sfdct::ct_triangulate(x))
 }
