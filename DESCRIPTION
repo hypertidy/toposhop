@@ -1,12 +1,11 @@
-Package: toposhop
+Package: torpor
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Lazy Topology
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Authors@R: person("Michael D.","Sumner", role = c("aut", "cre"), email =
+    "mdsumner@gmail.com")
+Description: Topology workshop, while sleeping. 
+License: GPL-3
 Encoding: UTF-8
 LazyData: true
 Suggests: knitr,

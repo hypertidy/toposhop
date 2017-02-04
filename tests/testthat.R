@@ -1,4 +1,4 @@
 library(testthat)
-library(toposhop)
+library(torpor)
 
-test_check("toposhop")
+test_check("torpor")

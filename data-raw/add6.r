@@ -2,7 +2,7 @@
 vpal <- function(n) {
   if (!is.null(dim(n))) {
     n <- nrow(n)
-  } 
+  }
   viridis::viridis(n)
 }
 library(sf)
@@ -13,8 +13,8 @@ plot(invalid)
 
 library(dplyr)
 library(rangl)
-ri <- rangl(toposhop:::sf_as_sp_l(invalid))
-si <- toposhop:::rg_as_sf(ri)
+ri <- rangl(torpor:::sf_as_sp_l(invalid))
+si <- torpor:::rg_as_sf(ri)
 plot(si, col = vpal(si))
 
 ## these ones are the offenders in the first bad object

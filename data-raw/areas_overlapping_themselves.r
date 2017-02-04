@@ -14,9 +14,9 @@ pd[["geometry"]] <- p_self
 pd <- st_as_sf(pd)
 
 
-ri <- rangl(toposhop:::sf_as_sp_l(pd))
-pi <- rangl(toposhop:::sf_as_sp_p(pd))
-si <- toposhop:::rg_as_sf(ri)
+ri <- rangl(torpor:::sf_as_sp_l(pd))
+pi <- rangl(torpor:::sf_as_sp_p(pd))
+si <- torpor:::rg_as_sf(ri)
 plot(si, col = vpal(si))
 
 nodal <- rangl(rgeos::gNode(as(si, "Spatial")))
