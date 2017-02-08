@@ -7,13 +7,23 @@ Early work on R-level topology fixes for simple features.
 
 So far we have:
 
--   self-intersecting polygons, fixed by filtering out triangles that don't intersect (by evenodd rule)
+-   self-intersecting polygons, fixed by filtering out triangles that don't intersect (by evenodd rule) (same as 'bowtie' polygon)
+-   wrong orientation of ring (sf doesn't complain about this, but the fix is fine)
+-   Inner ring with one edge sharing part of an edge of the outer ring:
+-   Dangling edge
+-   Two adjacent inner rings
+-   Polygon with an inner ring inside another inner ring
+
+These do not yet work:
+
+-   Outer ring not closed: <https://github.com/r-gris/sfdct/issues/12>
 
 See Issues for examples and please add your own!
 
-See r-gris/torpor for package code.
+sfdct
+-----
 
-**NOTE:** the large body of work on this already:
+Using the constrained triangulation in <https://github.com/r-gris/sfdct> seems like that will fix many problems. The best documentation and explanation and examples of the problems is listed at the links below.
 
 <https://3d.bk.tudelft.nl/hledoux/pdfs/12_agile.pdf>
 
