@@ -1,0 +1,33 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "README-"
+)
+```
+
+# toposhop
+
+Early work on R-level topology fixes for simple features. 
+
+So far we have: 
+
+* self-intersecting polygons, fixed by filtering out triangles that don't intersect (by evenodd rule)
+
+
+See Issues for examples and please add your own!
+
+See r-gris/torpor for package code. 
+
+**NOTE:** the large body of work on this already: 
+
+https://3d.bk.tudelft.nl/hledoux/pdfs/12_agile.pdf
+
+https://github.com/tudelft3d/prepair
+
